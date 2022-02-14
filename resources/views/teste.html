@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="teste1">Teste1</a>
+    <table class="table table-bordered mb-4">
+        <thead>
+            <tr class="table-success">
+                <th scope="col"></th>
+                <th scope="col">Título</th>
+                <th scope="col">Subtítulo</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Edição</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (!empty($livros))
+            @foreach ($livros as $livro)
+            <tr>
+                <td>
+                    <img src='/resources/fotos/{{ $livro->src }}' alt="{{ $livro->alt }}"
+                        class="flex-shrink-0 me-3 mt-3 rounded-circle" style="width:60px;height:60px;" />
+                </td>
+                <td>{{ $livro->titulo }}</td>
+                <td>{{ $livro->subtitulo }}</td>
+                <td>{{ $livro->isbn }}</td>
+                <td>{{ $livro->ano }}</td>
+                <td>{{ $livro->edicao }}</td>
+
+            </tr>
+            @endforeach
+            @else
+            <div class="container-fluid">
+                <p>A tabela de livros está vazia</p>
+            </div>
+            @endif
+        </tbody>
+    </table>
+    <hr>
+
+
+</body>
+
+</html>
